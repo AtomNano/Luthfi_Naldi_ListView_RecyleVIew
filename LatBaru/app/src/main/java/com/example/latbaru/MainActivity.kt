@@ -1,5 +1,6 @@
 package com.example.latbaru
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -17,7 +18,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnLogin : Button
     private lateinit var btnList : Button
     private lateinit var btnRecycle : Button
+    private lateinit var btnRecycleBuah : Button
+    private lateinit var btnMovie : Button
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -28,6 +32,9 @@ class MainActivity : AppCompatActivity() {
         btnLogin = findViewById(R.id.btnLogin)
         btnList = findViewById(R.id.btnList)
         btnRecycle = findViewById(R.id.btnRecycle)
+        btnRecycleBuah = findViewById(R.id.btnBuah)
+        btnMovie = findViewById(R.id.button)
+
         btnLogin.setOnClickListener {
             val nUsername = eUser.text.toString()
             val nPassword = ePassword.text.toString()
@@ -49,6 +56,14 @@ class MainActivity : AppCompatActivity() {
 
         btnRecycle.setOnClickListener {
             val intent = Intent(this, RecycleViewActivity::class.java)
+            startActivity(intent)
+        }
+        btnRecycleBuah.setOnClickListener {
+            val intent = Intent(this, RecycleBuahImageActivity::class.java)
+            startActivity(intent)
+        }
+        btnMovie.setOnClickListener {
+            val intent = Intent(this, MovieActivity::class.java)
             startActivity(intent)
         }
 
